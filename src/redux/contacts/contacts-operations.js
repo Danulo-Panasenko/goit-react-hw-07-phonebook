@@ -22,8 +22,8 @@ export const fetchAddContact = data => {
     } catch ({ response }) {
       dispatch(actions.fetchAddContactsError(response.data.message));
     }
-    return func;
   };
+  return func;
 };
 export const fetchdeleteContact = id => {
   const func = async dispatch => {
