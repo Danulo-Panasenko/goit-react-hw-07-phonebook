@@ -5,11 +5,11 @@ import {
   fetchAllContacts,
   fetchAddContact,
   fetchdeleteContact,
-} from '../../Redux/contacts/contacts-operations';
-import { getFilteredContacts } from 'Redux/contacts/contacts-selectors';
-import { getFilter } from 'Redux/filter/filter-selectors';
+} from '../../redux/contacts/contacts-operations';
+import { getFilteredContacts } from 'redux/contacts/contacts-selectors';
+import { getFilter } from 'redux/filter/filter-selectors';
 // import { addContact, deleteContact } from 'Redux/contacts/contacts-slice';
-import { setFilter } from 'Redux/filter/filter-slice';
+import { setFilter } from 'redux/filter/filter-slice';
 import ContactList from 'components/Contact/Contact';
 import Filter from 'components/Filter/Filter';
 import Form from 'components/Form/Form';
