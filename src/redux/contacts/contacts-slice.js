@@ -10,7 +10,7 @@ import {
   fetchDeleteContactsLoading,
   fetchDeleteContactsSuccess,
   fetchDeleteContactsError,
-} from './contacts-actions';
+} from '../../components/contacts-actions';
 // const nanoid = customAlphabet('1234567890', 2);
 const initialState = {
   items: [],

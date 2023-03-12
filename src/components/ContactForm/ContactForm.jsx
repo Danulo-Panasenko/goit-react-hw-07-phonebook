@@ -5,7 +5,7 @@ import {
   fetchAllContacts,
   fetchAddContact,
   fetchdeleteContact,
-} from '../../redux/contacts/contacts-operations';
+} from '../contacts-operations';
 import { getFilteredContacts } from 'redux/contacts/contacts-selectors';
 import { getFilter } from 'redux/filter/filter-selectors';
 // import { addContact, deleteContact } from 'Redux/contacts/contacts-slice';
