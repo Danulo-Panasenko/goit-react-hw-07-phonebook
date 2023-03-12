@@ -1,8 +1,8 @@
-export const getAllContacts = store => store.contacts;
+export const getAllContacts = ({ contacts }) => contacts.item;
 
 export const getFilteredContacts = ({ contacts, filter }) => {
   if (!filter) {
-    return contacts;
+    return contacts.item;
   }
   const normalizedFilter = filter.toLowerCase();
   return contacts.filter(
