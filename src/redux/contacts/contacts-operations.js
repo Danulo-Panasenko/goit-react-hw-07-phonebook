@@ -1,7 +1,7 @@
 import * as api from '../operations';
 import * as actions from './contacts-actions';
 
-export const fetchAllContacts = async () => {
+export const fetchAllContacts = () => {
   const func = async dispatch => {
     try {
       dispatch(actions.fetchAllContactsLoading());
