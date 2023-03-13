@@ -1,14 +1,10 @@
 import { useSelector, useDispatch } from 'react-redux';
 import css from 'components/ContactForm/ContactForm.module.css';
 import { useEffect } from 'react';
-import {
-  fetchAllContacts,
-  fetchAddContact,
-  fetchdeleteContact,
-} from 'redux/contacts/contacts-operations';
+import { fetchContacts, addContact, deleteContact } from 'redux/operations';
 import { getFilteredContacts } from 'redux/contacts/contacts-selectors';
 import { getFilter } from 'redux/filter/filter-selectors';
-// import { addContact, deleteContact } from 'Redux/contacts/contacts-slice';
+
 import { setFilter } from 'redux/filter/filter-slice';
 import ContactList from 'components/Contact/Contact';
 import Filter from 'components/Filter/Filter';
@@ -21,7 +17,7 @@ const ContactForm = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchAllContacts());
+    dispatch(fetchContacts());
   }, [dispatch]);
 
   const isDublicate = contName => {
@@ -37,13 +33,13 @@ const ContactForm = () => {
       alert(`${name} is already in contacts`);
       return false;
     }
-    const action = fetchAddContact({ name, number });
+    const action = addContact({ name, number });
     dispatch(action);
     return true;
   };
 
   const handleDeleteContact = id => {
-    const action = fetchdeleteContact(id);
+    const action = deleteContact(id);
     dispatch(action);
   };
   const changeFilter = ({ target }) => {
