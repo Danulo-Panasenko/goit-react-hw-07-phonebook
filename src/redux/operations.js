@@ -12,7 +12,7 @@ export const fetchContacts = createAsyncThunk(
     } catch (response) {
       return thunkAPI.rejectWithValue(response.data);
     }
-  },
+  }
   // const isDublicate = contName => {
   //   const normalizedName = contName.toLowerCase();
   //   const result = filteredContacts.find(({ name }) => {
@@ -24,20 +24,20 @@ export const fetchContacts = createAsyncThunk(
   //   alert(`${name} is already in contacts`);
   //   return false;
   // }
-  {
-    condition: ({ name }, { getState }) => {
-      const { contacts } = getState();
-      const normalizedTitle = name.toLowerCase();
+  // {
+  //   condition: ({ name }, { getState }) => {
+  //     const { contacts } = getState();
+  //     const normalizedTitle = name.toLowerCase();
 
-      const result = contacts.items.find(({ name }) => {
-        return name.toLowerCase() === normalizedTitle;
-      });
-      if (result) {
-        alert(`${name} is already in contacts`);
-        return false;
-      }
-    },
-  }
+  //     const result = contacts.items.find(({ name }) => {
+  //       return name.toLowerCase() === normalizedTitle;
+  //     });
+  //     if (result) {
+  //       alert(`${name} is already in contacts`);
+  //       return false;
+  //     }
+  //   },
+  // }
 );
 
 export const addContact = createAsyncThunk(

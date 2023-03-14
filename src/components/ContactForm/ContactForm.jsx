@@ -20,19 +20,19 @@ const ContactForm = () => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
-  // const isDublicate = contName => {
-  //   const normalizedName = contName.toLowerCase();
-  //   const result = filteredContacts.find(({ name }) => {
-  //     return name.toLowerCase() === normalizedName;
-  //   });
-  //   return Boolean(result);
-  // };
+  const isDublicate = contName => {
+    const normalizedName = contName.toLowerCase();
+    const result = filteredContacts.find(({ name }) => {
+      return name.toLowerCase() === normalizedName;
+    });
+    return Boolean(result);
+  };
 
   const handleAddContact = ({ name, number }) => {
-    // if (isDublicate(name)) {
-    //   alert(`${name} is already in contacts`);
-    //   return false;
-    // }
+    if (isDublicate(name)) {
+      alert(`${name} is already in contacts`);
+      return false;
+    }
     const action = addContact({ name, number });
     dispatch(action);
     return true;
