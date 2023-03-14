@@ -1,8 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'components/Button/Button';
-const ContactList = ({ deleteContact, filteredContacts }) => {
-  const Contact = filteredContacts.map(({ id, name, number }) => (
+//import { getFilteredContacts } from 'redux/contacts/contacts-selectors';
+///import { deleteContact } from 'redux/operations';
+import { useSelector } from 'react-redux';
+const ContactList = ({ getFilteredContacts, deleteContact }) => {
+  // const visibleContacts = useSelector(getFilteredContacts);
+  const Contact = getFilteredContacts.map(({ id, name, number }) => (
     <li key={id}>
       {name}:{number}
       <Button onClick={() => deleteContact(id)} type="button">
@@ -15,12 +19,12 @@ const ContactList = ({ deleteContact, filteredContacts }) => {
 export default ContactList;
 
 ContactList.defaultProps = {
-  filteredContacts: [],
+  getFilteredContacts: [],
 };
 
 ContactList.propTypes = {
-  removeContact: PropTypes.func.isRequired,
-  filteredContacts: PropTypes.arrayOf(
+  deleteContact: PropTypes.func,
+  getFilteredContacts: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,

@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { addContact, fetchContacts, deleteContact } from 'redux/operations';
+
 const initialState = {
   items: [],
   loading: false,
@@ -11,37 +12,37 @@ const contactsSlice = createSlice({
   initialState,
   extraReducers: builder => {
     builder
-      .addCase(fetchContacts, store => {
+      .addCase(fetchContacts.pending, store => {
         store.loading = true;
       })
-      .addCase(fetchContacts, (store, { payload }) => {
+      .addCase(fetchContacts.fulfilled, (store, { payload }) => {
         store.loading = false;
         store.items = payload;
       })
-      .addCase(fetchContacts, (store, { payload }) => {
+      .addCase(fetchContacts.rejected, (store, { payload }) => {
         store.loading = false;
         store.error = payload;
       })
-      .addCase(addContact, store => {
+      .addCase(addContact.pending, store => {
         store.loading = true;
       })
-      .addCase(addContact, (store, { payload }) => {
+      .addCase(addContact.fulfilled, (store, { payload }) => {
         store.loading = false;
         store.items.push(payload);
       })
-      .addCase(addContact, (store, { payload }) => {
+      .addCase(addContact.rejected, (store, { payload }) => {
         store.loading = false;
         store.error = payload;
       })
-      .addCase(deleteContact, store => {
+      .addCase(deleteContact.pending, store => {
         store.loading = true;
       })
-      .addCase(deleteContact, (store, { payload }) => {
+      .addCase(deleteContact.fulfilled, (store, { payload }) => {
         store.loading = false;
         const index = store.items.findIndex(item => item.id === payload);
         store.items.splice(index, 1);
       })
-      .addCase(deleteContact, (store, { payload }) => {
+      .addCase(deleteContact.rejected, (store, { payload }) => {
         store.loading = false;
         store.error = payload;
       });
