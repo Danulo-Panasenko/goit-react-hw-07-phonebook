@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Button from 'components/Button/Button';
 //import { getFilteredContacts } from 'redux/contacts/contacts-selectors';
 ///import { deleteContact } from 'redux/operations';
-import { useSelector } from 'react-redux';
+
 const ContactList = ({ getFilteredContacts, deleteContact }) => {
   // const visibleContacts = useSelector(getFilteredContacts);
   const Contact = getFilteredContacts.map(({ id, name, number }) => (
