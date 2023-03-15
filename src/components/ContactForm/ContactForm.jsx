@@ -58,7 +58,11 @@ const ContactForm = () => {
   };
 
   //  const filteredContacts = getFilteredContacts();
-
+  // const ContactList = props => {
+  //   console.log(props);
+  //   console.log(filteredContacts);
+  //   console.log(handleDeleteContact);
+  // };
   return (
     <div className={css.style}>
       <h4>Phonebook</h4>
