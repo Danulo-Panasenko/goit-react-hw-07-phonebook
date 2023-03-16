@@ -37,17 +37,6 @@ const ContactForm = () => {
     dispatch(action);
     return true;
   };
-  // const handleAddContact = data => {
-  //   const name = data.name;
-  //   if (contacts.find(contact => contact.name === name)) {
-  //     alert(`${name} is already in contacts`);
-  //     return;
-  //   }
-
-  //   const phone = data.number;
-  //   const action = addContact({ name, phone });
-  //   dispatch(action);
-  // };
 
   const handleDeleteContact = id => {
     const action = deleteContact(id);
